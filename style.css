@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --dark-shadow: hsla(0, 0%, 0%, .9);
+    --light-shadow: hsla(0, 0%, 0%, .5);
+    --dark-color: hsl(200, 100%, 10%);
+    --medium-color: hsl(200, 100%, 50%);
+    --light-color: hsl(200, 100%, 90%);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-color);
+    font-size: 1.6rem;
+    font-family: 'Righteous', sans-serif;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    color: var(--dark-color);
+    font-size: 5rem;
+}
+
+.game-board {
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.card {
+    width: 15rem;
+    height: 15rem;
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    box-shadow: 0 1rem 1rem var(--light-shadow);
+}
+
+.card-front {    
+    transform: rotateY(180deg);
+    
+    background-color: var(--dark-color);
+}
+
+.card-back {
+    background-color: var(--medium-color);
+    color: var(--dark-color);
+    font-size: 4rem;
+    font-weight: 800;
+}
+
+.icon {
+    height: 75%;
+}
+
+.game-over {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-shadow);
+    color: var(--light-color);
+    font-size: 5rem;
+}
+
+.restart {
+    padding: 2rem;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: var(--medium-color);
+    color: var(--dark-color);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Laptop */
+@media (max-width: 1799px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+/* Tablet Landscape */
+@media (max-width: 1199px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 899px) {
+    html {
+        font-size: 40%;
+    }
+    .game-board {
+        display: grid;
+        grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Smartphone L*/
+@media (max-width: 599px) {
+    html {
+        font-size: 35%;
+    }
+    .game-board {
+        display: grid;
+        grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Smartphone S*/
+@media (max-width: 399px) {
+    html {
+        font-size: 35%;
+    }
+    .game-board {
+        display: grid;
+        grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .card {
+        width: 12rem;
+        height: 12rem;
+    }
+}
